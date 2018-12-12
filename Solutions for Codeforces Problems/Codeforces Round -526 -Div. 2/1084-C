@@ -20,7 +20,7 @@ using namespace std;
 #define min3(a, b, c)         min(a, min(b, c))
 #define valid(tx,ty)          (tx>=0&&tx<C&&ty>=0&&ty<R)
 #define MX                    10000001
-#define mod                   1e9 + 7
+#define mod                   1000000007
 #define sf1(a)                scanf("%d",&a)
 #define sf2(a,b)              scanf("%d %d",&a,&b)
 #define sf3(a,b,c)            scanf("%d %d %d",&a,&b,&c)
@@ -55,46 +55,19 @@ int main()
     cout.tie(0);
     optimize;
     //freopen("input.txt", "r", stdin);
-    int cout_a = 0;
+    int count_a = 0;
 	string str;
 	cin >> str;
 	veci sol;
+	ans = 1;
 	for(char x: str){
-		if(x == 'a') count++;
-		if(x == 'b') sol.p_b(count), count = 0; 
-	}    
-	
-	if(sol.size()){
-		ans = 1;
-		for(int x: sol){
-			ans *= (sol + 1) % mod;
-			ans %= mod;
-		}
-		cout << ans << endl;	
+		if(x == 'a') count_a++, check = true;
+		if(x == 'b') sol.p_b(count_a),  ans = ((ans % mod) * (count_a + 1)% mod) % mod, count_a = 0;
 	}
+    if(str.back() != 'b') ans = ((ans % mod) * (count_a + 1)% mod) % mod;
+    if(check) cout << ans - 1 << endl;
 	else cout << 0 << endl;
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
 
     return 0;
 }
