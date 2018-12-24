@@ -2,8 +2,8 @@
 //see, md is of the range [1, k - 1], 
 //so, the max value of the range that divides n would the value of div.
 // next, find div, div = x / k  and md = x % k, so x must be equak to  div *  k + md 
-//some common intuitions, if n < k, the possible minimum vlaue of x must be n + k, 
-// doing this separately that reduces very little complexity, so don't do this separaetly, I did though.
+//some common intuitions, if n < k, the possible minimum value of x must be n + k, 
+// doing this separately reduces very little complexity, so don't do this separaetly, I did though.
 
 
 #include <bits/stdc++.h>
