@@ -1,0 +1,52 @@
+*/
+Author: Abdul Matin
+/*
+#include <bits/stdc++.h>
+using namespace std;
+int t, N, p, q, r, c, R, C, mn = 1e9 + 9, mx = 0, tt, height, width;
+long long ans, s, product;
+bool check = false;
+
+
+
+
+int main()
+{
+//    cin.tie(0);
+//    cout.tie(0);
+//    optimize;
+    //freopen("input.txt", "r", stdin);
+    cin >> t;
+    while(t--){
+        int flag = 0;
+        long long m;
+        cin >> m;
+        check = false;
+        if(m < 0){
+            m = -m;
+            check = true;
+        }
+        p = (int)log2(m);
+
+        int i;
+        for( i = p; i >= 2; i--){
+            if(check && i % 2 == 0) continue;
+            product = 1;
+            for(int c = 2; product < m ; c++){
+                product = 1;
+                int tt = i;
+                while(tt--){
+                    product *= c;
+                }
+
+                if(product == m) {flag = 1; break;}
+
+
+            }
+            if(flag) break;
+        }
+        cout << "Case " << ++c << ": " << i << endl;
+    }
+
+    return 0;
+}
