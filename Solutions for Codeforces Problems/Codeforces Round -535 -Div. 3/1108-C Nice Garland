@@ -1,0 +1,91 @@
+//Author: Abdul Matin
+//CF handle: AbdAl-mateen
+
+
+#include <bits/stdc++.h>
+using namespace std;
+#define optimize              ios_base::sync_with_stdio(false)
+#define FOR(i, a, n)          for(int i = a; i < n; i++)
+#define from_0_to(x)          for(int i = 0; i < x; i++)
+#define LL                    long long
+#define ULL                   unsigned long long
+#define YES()                 printf("YES\n")
+#define NO()                  printf("NO\n")
+#define NL()                  printf("\n")
+#define PI                    acos(-1)
+#define veci                  vector <int>
+#define vecll                 vector < long long >
+#define p_b                   push_back
+#define pii                   pair < int, int >
+#define pci                   pair <char, int >
+#define psi                   pair <string, int>
+#define m_p                   make_pair
+#define max3(a, b, c)         max(a, max(b, c))
+#define min3(a, b, c)         min(a, min(b, c))
+#define valid(tx,ty)          (tx>=0&&tx<C&&ty>=0&&ty<R)
+#define MX                    10000001
+#define mod                   1e9 + 7
+#define sf1(a)                scanf("%d",&a)
+#define sf2(a,b)              scanf("%d %d",&a,&b)
+#define sf3(a,b,c)            scanf("%d %d %d",&a,&b,&c)
+#define pf1(a)                printf("%d\n",a);
+#define pf2(a,b)              printf("%d %d\n",a,b)
+#define pf3(a,b,c)            printf("%d %d %d\n",a,b,c)
+#define sf1ll(a)              scanf("%lld",&a)
+#define sf2ll(a,b)            scanf("%I64d %I64d",&a,&b)
+#define sf3ll(a,b,c)          scanf("%I64d %I64d %I64d",&a,&b,&c)
+#define pf1ll(a)              printf("%lld\n",a);
+#define pf2ll(a,b)            printf("%I64d %I64d\n",a,b)
+#define pf3ll(a,b,c)          printf("%I64d %I64d %I64d\n",a,b,c)
+#define STRTOLOWER(x)         std::transform (x.begin(), x.end(), x.begin(), ::tolower)
+#define STRTOUPPER(x)         std::transform (x.begin(), x.end(), x.begin(), ::toupper)
+#define STRTOUCFIRST(x)       std::transform (x.begin(), x.begin()+1, x.begin(),  ::toupper); std::transform (x.begin()+1, x.end(),   x.begin()+1,::tolower)
+//int a[MX], b[MX], sol[MX];
+//int dx[] = {0, 0, 1, -1}, dy[] = {1, -1, 0, 0}
+//ll dx[]={1,0,-1,0,1,-1,-1,1};
+//ll dy[]={0,1,0,-1,1,1,-1,-1};
+//int dx = {1, 1, 2, 2, -1, -1, -2, -2}
+//int dy = {2, -2, 1, -1, 2, -2, 1, -1}
+int t, n, N, p, q, r, cnt[6], R, C,  m, mn = 1e9 + 9, mx = 0, tt, height, width;
+long long ans1 = 1, ans2 = 1, s;
+bool check = false;
+
+int a[10009], chk[10009];
+
+
+int main()
+{
+    cin.tie(0);
+    cout.tie(0);
+    optimize;
+    //freopen("input.txt", "r", stdin);
+    int sz; cin >> sz;
+    string str;
+    cin >> str;
+
+    string ss1("RGB"), ss2("RBG"), ss3("BGR"), ss4("BRG"), ss5("GBR"), ss6("GRB");
+    string sss [6] = { "RGB",  "RBG", "BGR", "BRG", "GBR", "GRB"};
+    for(int i = 0, j = 0; i < sz; i++, j++){
+        j %= 3;
+        if(str[i] != ss1[j]) cnt[0]++;
+        if(str[i] != ss2[j]) cnt[1]++;
+        if(str[i] != ss3[j]) cnt[2]++;
+        if(str[i] != ss4[j]) cnt[3]++;
+        if(str[i] != ss5[j]) cnt[4]++;
+        if(str[i] != ss6[j]) cnt[5]++;
+        //cout << j << endl;
+    }
+    for(int i = 0; i < 6; i++){
+        if(mn > cnt[i]) mn = cnt[i], q = i;
+    }
+    cout << mn << endl;
+    if(!mn) {cout << str << endl; return 0;}
+    for(int i = 0, j = 0; i < sz; i++, j++){
+        j %= 3;
+        cout << sss[q][j];
+    }
+
+    cout << endl;
+
+    return 0;
+}
