@@ -1,4 +1,4 @@
-/* author: Abdul Mati
+/* author: Abdul Matin
  problem: UVa 10130
  category: simple knapsack problem
  */
